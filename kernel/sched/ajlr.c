@@ -1,8 +1,3 @@
-// SPDX-License-Identifier: GPL-2.0
-/*
- * AJLR scheduling class - MINIMAL VERSION FOR TESTING FRAMEWORK
- * All functions are empty or return simple values to test if framework works
- */
 
 #include "sched.h"
 
