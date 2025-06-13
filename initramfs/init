@@ -1,0 +1,9 @@
+#!/bin/sh
+echo "=== Starting init script ==="
+
+# Mount essential filesystems
+/bin/busybox mount -t proc none /proc
+/bin/busybox mount -t sysfs none /sys
+
+echo "=== Init complete, dropping to shell ==="
+exec /bin/sh
