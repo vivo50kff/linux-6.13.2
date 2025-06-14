@@ -20,7 +20,7 @@
 #include <linux/sched/task_flags.h>
 #include <linux/sched/task.h>
 #include <linux/sched/topology.h>
-#include <linux/sched/ajlr.h>
+#include <linux/sched/yat-casched.h>
 #include <linux/atomic.h>
 #include <linux/bitmap.h>
 #include <linux/bug.h>
@@ -1186,8 +1186,8 @@ struct rq {
 	u64 last_seen_need_resched_ns;
 	int ticks_without_resched;
 #endif
-#ifdef CONFIG_SCHED_AJLR
-    struct ajlr_rq ajlr;
+#ifdef CONFIG_SCHED_YAT_CASCHED
+    struct yatcasched_rq yatcasched;
 #endif
 #ifdef CONFIG_MEMBARRIER
 	int membarrier_state;
@@ -3917,7 +3917,9 @@ extern void check_class_changing(struct rq *rq, struct task_struct *p,
 extern void check_class_changed(struct rq *rq, struct task_struct *p,
 				const struct sched_class *prev_class,
 				int oldprio);
-
+#ifdef CONFIG_SCHED_YAT_CASCHED
+extern const struct sched_class yatcasched_sched_class;
+#endif
 #ifdef CONFIG_SMP
 extern struct balance_callback *splice_balance_callbacks(struct rq *rq);
 extern void balance_callbacks(struct rq *rq, struct balance_callback *head);

@@ -177,13 +177,8 @@ config SCHED_CLASS_EXT
 	    Documentation/scheduler/sched-ext.rst
 	    https://github.com/sched-ext/scx
 
-config SCHED_AJLR
-	bool "AJLR Cache-Aware Scheduler Class"
-	depends on SMP
-	default n
-	help
-	  This option enables the AJLR cache-aware scheduler which
-	  optimizes task placement on CPUs based on cache utilization
-	  and tasks' cache footprints to minimize cache-related delays.
-
-	  If unsure, say N.
+config SCHED_YAT_CASCHED
+    bool "Yat-CASched Cache-Aware Scheduler Class"
+    default n
+    help
+      Enable the Yat-CASched custom scheduler class.

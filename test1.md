@@ -550,7 +550,7 @@ make menuconfig
 
 ```bash
 # 选项1：只编译 ajlr.c 文件（最快）
-make kernel/sched/ajlr.o -j$(nproc)
+make kernel/sched/yat-casched.o -j$(nproc)
 
 # 选项2：编译整个调度器模块
 make M=kernel/sched/ -j$(nproc)

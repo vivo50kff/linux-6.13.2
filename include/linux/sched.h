@@ -14,7 +14,7 @@
 #include <linux/thread_info.h>
 #include <linux/preempt.h>
 #include <linux/cpumask_types.h>
-
+#include <linux/sched/yat-casched.h>
 #include <linux/cache.h>
 #include <linux/irqflags_types.h>
 #include <linux/smp_types.h>
@@ -839,6 +839,9 @@ struct task_struct {
 	struct sched_rt_entity		rt;
 	struct sched_dl_entity		dl;
 	struct sched_dl_entity		*dl_server;
+#ifdef CONFIG_SCHED_YAT_CASCHED
+    struct yatcasched_task yatcasched;
+#endif
 #ifdef CONFIG_SCHED_CLASS_EXT
 	struct sched_ext_entity		scx;
 #endif
